@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_margin">24dp</dimen>
+    <dimen name="icon_size">64dp</dimen>
+    <dimen name="picture_size">128dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+</resources>

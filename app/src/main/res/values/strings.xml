@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Parliament Members App</string>
+    <string name="party_name">Party</string>
+    <string name="title">Title</string>
+    <string name="member_name">Full name</string>
+    <string name="member_age">Age</string>
+    <string name="constituency">Constituency</string>
+    <string name="navigate_to_add_comment">Add Rating and Comments</string>
+    <string name="rating_bar_hint">Rating bar</string>
+    <string name="add_comment_hint">Add Comment</string>
+    <string name="member_image_hint">Member Image</string>
+    <string name="party_image_hint">Party Image</string>
+    <string name="done_button">Done</string>
+</resources>

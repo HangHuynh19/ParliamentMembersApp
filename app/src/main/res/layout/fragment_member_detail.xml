@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="memberDetailViewModel"
+            type="com.example.parliamentmembersapp.memberDetailScreen.MemberDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="711dp"
+            android:background="@color/purple_200"
+            android:padding="8dp"
+            tools:context=".MemberDetailScreen.MemberDetailFragment">
+
+            <ImageView
+                android:id="@+id/member_img"
+                android:layout_width="140dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/member_image_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/political_party" />
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/full_name_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toEndOf="@+id/member_img"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/member_info_style" />
+
+            <TextView
+                android:id="@+id/full_name_tv"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                app:layout_constraintBottom_toTopOf="@+id/party_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toEndOf="@+id/member_img"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv"
+                style="@style/member_info_style"/>
+
+            <TextView
+                android:id="@+id/age_tv"
+                app:layout_constraintBottom_toTopOf="@+id/constituency_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toEndOf="@+id/member_img"
+                app:layout_constraintTop_toBottomOf="@+id/party_tv"
+                style="@style/member_info_style" />
+
+            <TextView
+                android:id="@+id/party_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto"
+                android:singleLine="false"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/age_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/member_img"
+                app:layout_constraintTop_toBottomOf="@+id/full_name_tv" />
+
+            <TextView
+                android:id="@+id/constituency_tv"
+                app:layout_constraintBottom_toTopOf="@+id/twitter_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.033"
+                app:layout_constraintStart_toEndOf="@+id/member_img"
+                app:layout_constraintTop_toBottomOf="@+id/age_tv"
+                style="@style/member_info_style"/>
+
+            <TextView
+                android:id="@+id/twitter_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto"
+                android:singleLine="false"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.04"
+                app:layout_constraintStart_toEndOf="@+id/member_img"
+                app:layout_constraintTop_toBottomOf="@+id/constituency_tv" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="230dp" />
+
+            <RatingBar
+                android:id="@+id/member_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:isIndicator="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2"
+                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+            <TextView
+                android:id="@+id/comment_and_rate_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/navigate_to_add_comment"
+                android:textColor="@color/purple_700"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/comments_recycler_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.959"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member_rating"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comments_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.093"
+                app:layout_constraintStart_toStartOf="parent">
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

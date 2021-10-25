@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="member"
+            type="com.example.parliamentmembersapp.database.MemberOfParliament" />
+        <variable
+            name="clickListener"
+            type="com.example.parliamentmembersapp.allMembersScreen.MemberListener" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_border"
+        android:onClick="@{() -> clickListener.onClick(member)}">
+
+        <ImageView
+            android:id="@+id/party_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/small_padding"
+            android:contentDescription="@string/party_image_hint"
+            android:paddingBottom="@dimen/small_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.115"
+            app:partyImage="@{member}"
+            app:srcCompat="@drawable/political_party" />
+
+        <TextView
+            android:id="@+id/member_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/small_padding"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@{member.first}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/party_img"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="@+id/party_img"
+            app:layout_constraintTop_toBottomOf="@+id/party_img"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/member_last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@{member.last}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/member_first_name"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="@+id/member_first_name"
+            app:layout_constraintTop_toBottomOf="@+id/member_first_name"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

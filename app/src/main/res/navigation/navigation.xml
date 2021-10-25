@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/allMembersFragment">
+
+    <fragment
+        android:id="@+id/allMembersFragment"
+        android:name="com.example.parliamentmembersapp.allMembersScreen.AllMembersFragment"
+        android:label="AllMembersFragment"
+        tools:layout="@layout/fragment_all_members">
+        <action
+            android:id="@+id/action_allMembersFragment_to_memberDetailFragment"
+            app:destination="@id/memberDetailFragment"
+            app:popUpTo="@id/allMembersFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/memberDetailFragment"
+        android:name="com.example.parliamentmembersapp.memberDetailScreen.MemberDetailFragment"
+        android:label="MemberDetailFragment"
+        tools:layout="@layout/fragment_member_detail">
+        <argument
+            android:name="personNum"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_memberDetailFragment_to_addCommentAndRatingFragment"
+            app:destination="@id/addCommentAndRatingFragment"
+            app:popUpTo="@id/memberDetailFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_memberDetailFragment_to_allMembersFragment"
+            app:destination="@id/allMembersFragment"
+            app:popUpTo="@id/allMembersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCommentAndRatingFragment"
+        android:name="com.example.parliamentmembersapp.addCommentAndRatingScreen.AddCommentAndRatingFragment"
+        android:label="fragment_add_comment_and_rating"
+        tools:layout="@layout/fragment_add_comment_and_rating" >
+        <argument
+            android:name="personNum"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addCommentAndRatingFragment_to_memberDetailFragment"
+            app:destination="@id/memberDetailFragment"
+            app:popUpTo="@id/memberDetailFragment" />
+    </fragment>
+</navigation>
